@@ -1,32 +1,120 @@
+🧠 Dynamic Memory Management Visualizer
+📌 Project Overview
 
-Virtual Memory Management Simulator
-===================================
+This project is a Dynamic Memory Management Visualizer built as part of our college curriculum to better understand how memory allocation and deallocation work inside an operating system.
 
-Contents:
-- index.html         : Frontend UI (single-file HTML + JS). Connects to backend at ws://localhost:8000/ws
-- main.py            : FastAPI backend implementing simulator, REST endpoints and WebSocket broadcasting
-- requirements.txt   : Python requirements
-- Dockerfile         : Dockerfile to containerize the backend service
-- vm_simulator.zip   : This archive (when created)
+Instead of learning these concepts only through theory, this project provides a visual and interactive way to see how memory blocks are allocated, used, and freed in real time.
 
-Quick start (local):
-1. Create and activate a virtualenv (recommended):
-   python -m venv venv
-   source venv/bin/activate   # on Linux/Mac
-   venv\Scripts\activate    # on Windows (PowerShell: .\venv\Scripts\Activate.ps1)
+🎯 Purpose of the Project
 
-2. Install dependencies & run backend:
-   pip install -r requirements.txt
-   python main.py
+In Operating Systems, concepts like dynamic memory allocation, free memory blocks, and first-fit strategy are often difficult to imagine practically.
+The main goal of this project is to:
 
-3. Open index.html in your browser (File > Open) OR serve it from a small static server:
-   python -m http.server 8080
-   then open http://localhost:8080/index.html
+Convert theoretical OS concepts into a visual simulation
 
-Notes:
-- The frontend expects the backend at the same machine on port 8000 (ws://localhost:8000/ws).
-- If you host frontend from a different origin, add CORS to the FastAPI app (instructions in README).
-- For production, run behind a process manager and consider per-session simulators instead of the single global one.
-- To run with Docker:
-   docker build -t vm-sim .
-   docker run -p 8000:8000 vm-sim
+Help students understand how memory is divided and managed
+
+Show the effect of allocation and deallocation clearly
+
+Bridge the gap between theory and real-world behavior
+
+⚙️ How the System Works
+
+The total memory is represented as a single continuous memory space
+
+Memory is divided into blocks
+
+Each block can be:
+
+✅ Free
+
+❌ Allocated (Used)
+
+🔹 Allocation
+
+When the user enters a block size and process label:
+
+The system applies the First-Fit Allocation Algorithm
+
+The first available free block large enough is selected
+
+Memory is allocated and shown visually
+
+🔹 Deallocation
+
+The user can select an allocated block
+
+That block is freed
+
+The memory layout updates instantly
+
+🔹 Visualization
+
+🟢 Green blocks → Allocated memory
+
+⚫ Dark blocks → Free memory
+
+Logs are maintained to show allocation status and actions
+
+🧩 Technologies Used
+Frontend
+
+HTML – Structure of the interface
+
+CSS – Styling and responsive layout
+
+JavaScript – User interaction and dynamic updates
+
+Backend
+
+Python (FastAPI) – Handles memory logic and API communication
+
+WebSocket – Enables real-time updates between backend and frontend
+
+💡 Key Features
+
+Interactive memory visualization
+
+Real-time updates using WebSockets
+
+First-Fit memory allocation strategy
+
+Allocation and deallocation logs
+
+User-friendly and responsive interface
+
+Educational and beginner-friendly design
+
+📚 Educational Value
+
+This project is especially useful for:
+
+Computer Science students
+
+Learning Operating Systems
+
+Understanding Dynamic Memory Allocation
+
+Visualizing abstract OS concepts easily
+
+It helps students grasp concepts that are usually difficult to imagine by making them visible and interactive.
+
+🧑‍🤝‍🧑 Team Contribution
+
+This project was developed collaboratively.
+Each member contributed to different aspects such as:
+
+Backend logic
+
+Frontend design
+
+Code refactoring
+
+UI improvements
+
+Testing and debugging
+
+✅ Conclusion
+
+The Dynamic Memory Management Visualizer successfully demonstrates how memory is allocated and freed in an operating system using an easy-to-understand visual approach.
+It serves as both a learning tool and a practical implementation of OS concepts taught in classrooms.
