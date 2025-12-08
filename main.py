@@ -10,6 +10,7 @@ app = FastAPI(title="Simple VM Simulator API")
 # --- Pydantic Models for Data Structure ---
 
 
+
 class PageTableEntry(BaseModel):
     """Represents an entry in a process's Page Table."""
     vpn: int
@@ -52,7 +53,7 @@ class AccessRequest(BaseModel):
 class Simulator:
     """Manages the virtual memory state and replacement logic."""
 
-    def __init__(self):
+     def __init__(self):
         self.frames: List[Frame] = []
         self.processes: Dict[str, ProcessModel] = {}
         self.frame_capacity = 0
